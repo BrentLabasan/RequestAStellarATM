@@ -1,16 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
-    <!--
+
+<head>
+
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+
+
+
+
+        <script src="%PUBLIC_URL%/js/stellar-sdk.js"></script>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy"
+    crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
+    crossorigin="anonymous"></script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdpsBjNTnJvH9xZSY46Fh1VS08udF3D2U&callback=initMap"
+    type="text/javascript"></script>
+
+
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#000000">
+  <!--
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-    <!--
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+  <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
@@ -19,14 +45,25 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
-    <div id="root"></div>
-    <!--
+  <title>RequestAStellarATM.COM</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto" rel="stylesheet">
+
+  <style>
+    #map {
+      height: 650px;
+      width: 100%;
+    }
+  </style>
+
+</head>
+
+<body>
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+  <div id="root"></div>
+  <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
 
@@ -36,5 +73,156 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-  </body>
+
+    <div id="map"></div>
+    <script>
+        var map;
+        var array
+        function initMap() {
+            var uluru = { lat: 32.776664, lng: -96.796988 };
+
+            array = [
+                // { lat: 47.620506, lng: -122.349277, amount: .001 },
+                // { lat: 36.169941, lng: -115.139830, amount: 5.8 },
+                // { lat: 40.712775, lng: -74.005973, amount: 100 }
+                // {lat: , lng: },
+
+            ];
+
+            var server = new StellarSdk.Server('https://horizon.stellar.org');
+            var accountId = 'GB4P2YXKH3IYUKCBEATQ75EX7BOPWC6HPABUZVW7UNODXKH6AVWDIL3D';
+            var lastCursor = 0; // or load where you left off
+
+            var txHandler = function (txResponse) {
+                console.log('txResponse');
+                console.log(txResponse);
+            };
+
+            var es = server.payments()
+                .forAccount(accountId)
+                .limit(100)
+                .call().then(function (payments) {
+                    console.log('payments');
+                    console.log(payments);
+
+                    for (let i = 0; i < payments.records.length; i++) {
+                        console.log(payments.records[i].transaction_hash);
+                        $.ajax({
+                            url: "https://horizon.stellar.org/transactions/" + payments.records[i].transaction_hash,
+                            cache: false
+                        })
+                            .done(function (html) {
+                                var patt = /^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/;
+                                // debugger;
+                                if (html.memo && html.memo.search(patt) > -1) {
+                                    // debugger;
+                                    var x = html.memo.split(",");
+                                    // array.push({ lat: parseFloat(x[0]), lng: parseFloat(x[1]) });
+                                    // debugger;
+                                    var latLng = new google.maps.LatLng(parseFloat(x[0]), parseFloat(x[1]))
+                                    debugger;
+                                    var marker = new google.maps.Marker({
+                                        position: latLng,
+                                        map: map,
+                                        label: parseFloat(payments.records[i].amount).toString()
+                                    });
+
+                                }
+                                console.log("memo of transaction_hash ");
+                                console.log(html.memo);
+                                console.log(array);
+
+                            });
+                    }
+                }).then(function () {
+
+                });
+
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 2,
+                center: uluru
+            });
+
+            // Create a <script> tag and set the USGS URL as the source.
+            var script = document.createElement('script');
+
+            // This example uses a local copy of the GeoJSON stored at
+            // http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp
+            script.src = 'https://developers.google.com/maps/documentation/javascript/examples/json/earthquake_GeoJSONP.js';
+            document.getElementsByTagName('head')[0].appendChild(script);
+
+
+            // var marker = new google.maps.Marker({
+            //   position: uluru,
+            //   map: map
+            // });
+
+            map.data.setStyle(function (feature) {
+                var magnitude = feature.getProperty('mag');
+                return {
+                    icon: getCircle(magnitude)
+                };
+            });
+
+            // debugger;
+            // for (var i = 0; i < array.length; i++) {
+            //     var coords = array[i];
+            //     var latLng = new google.maps.LatLng(array[i].lat, array[i].lng);
+            //     var marker = new google.maps.Marker({
+            //         position: latLng,
+            //         map: map
+            //         // label: "" + array[i].amount
+            //     });
+
+            // }
+
+        }
+
+        function getCircle(magnitude) {
+            return {
+                path: google.maps.SymbolPath.CIRCLE,
+                fillColor: 'red',
+                fillOpacity: .2,
+                scale: Math.pow(2, magnitude) / 2,
+                strokeColor: 'white',
+                strokeWeight: .5
+            };
+        }
+
+        function eqfeed_callback(results) {
+            map.data.addGeoJson(results);
+        }
+    </script>
+
+    <div id="results">
+    </div>
+
+    <div class="row">
+        <div class="col-sm-2">
+            <h1>Request <br/>A <br/>Stellar<br/> ATM
+                <br/>.com</h1><p>BETA</p>
+        </div>
+        <div class="col-sm-2">
+            <h3>What is this site?</h3>
+            <p>This site is for</p>
+        </div>
+        <div class="col-sm-3">
+            <h3>How do I request an ATM in a location?</h3>
+            <p>This site is for</p>
+        </div>
+        <div class="col-sm-3">
+            <h3>What happens with the Stellar Lumens (XLM) that get sent with each request's transaction?</h3>
+            <p>I plan to</p>
+        </div>
+        <div class="col-sm-1">
+                <h3>Contact</h3>
+                <p>BrentLabasan@gmail.com</p>
+            </div>
+
+    </div>
+
+
+
+</body>
+
 </html>
