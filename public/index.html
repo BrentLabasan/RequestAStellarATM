@@ -3,10 +3,8 @@
 
 <head>
 
-    <script
-    src="https://code.jquery.com/jquery-3.2.1.min.js"
-    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
@@ -14,29 +12,30 @@
 
 
 
-        <script src="%PUBLIC_URL%/js/stellar-sdk.js"></script>
+    <script src="%PUBLIC_URL%/js/stellar-sdk.js"></script>
 
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy"
-    crossorigin="anonymous">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
-    crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy"
+        crossorigin="anonymous"> -->
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdpsBjNTnJvH9xZSY46Fh1VS08udF3D2U&callback=initMap"
-    type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
+        crossorigin="anonymous"></script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdpsBjNTnJvH9xZSY46Fh1VS08udF3D2U&callback=initMap"
+        type="text/javascript"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
 
 
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="theme-color" content="#000000">
-  <!--
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <!--
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
     -->
-  <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-  <!--
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
@@ -45,25 +44,25 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-  <title>RequestAStellarATM.COM</title>
+    <title>RequestAStellarATM.COM</title>
 
-  <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto" rel="stylesheet">
 
-  <style>
-    #map {
-      height: 650px;
-      width: 100%;
-    }
-  </style>
+    <style>
+        #map {
+            height: 600px;
+            width: 100%;
+        }
+    </style>
 
 </head>
 
 <body>
-  <noscript>
-    You need to enable JavaScript to run this app.
-  </noscript>
-  <div id="root"></div>
-  <!--
+    <noscript>
+        You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root"></div>
+    <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
 
@@ -199,25 +198,52 @@
 
     <div class="row">
         <div class="col-sm-2">
-            <h1>Request <br/>A <br/>Stellar<br/> ATM
-                <br/>.com</h1><p>BETA</p>
+            <h1>
+WELCOME! 
+<!-- <br/>
+BIENVENIDO!
+<br/>
+ようこそ
+
+歡迎
+환영 -->
+</h1>
         </div>
-        <div class="col-sm-2">
-            <h3>What is this site?</h3>
-            <p>This site is for</p>
+        <div class="col-sm-5">
+<h3>What is RequestAStellarATM.com?</h3>
+<h4>RequestAStellarATM.com is a site which allows you to show the Stellar Development Foundation where you'd like them to prioritize setting up 
+    ATMs that make use of Stellar Lumens (XLM).</h4>
+    <h4>Requests take the form of XLM transactions to a public address. Since XLM transactions have an amount and can contain
+        an optional message text (256 characters), you can use those properties to signify how much you want that location to have an ATM,
+    and the latitude-longitude coordinates of that location, respectively.
+    </h4>
+    <h4>You don't have to send a lot of XLM to request an ATM, even a tiny amount like .001 XLM will show up on the map!</h4>
+
+    <h4>It is my hope that I can work with the Stellar Development Foundation to use the XLM associated with requests to offset 
+        installing an ATM in the respective location. Another possibility is refunding the XLM back to the address that requested it.
+    </h4>
+
+    <h5>-Brent Labasan</h5>
         </div>
-        <div class="col-sm-3">
-            <h3>How do I request an ATM in a location?</h3>
-            <p>This site is for</p>
+        <div class="col-sm-5">
+            <h3>How do I request an ATM?</h3>
+            <h4>Make a transaction to 
+                <br/><br/>
+                GDZAZWBLGY3FVHRSYFRQ2IT6J5XTNWQHZMRFOYIRGTBX7AOSF767JOLT
+                <br/><br/>
+                and set it's memo-text to a latitude longitude coordinate of the format
+                <br/><br/>
+                &lt;latitude&gt;,&lt;/latitude&gt;
+                <br/><br/>
+
+                No spaces please!
+                <br/><br/>
+                Visit
+                <a href="https://www.latlong.net" target="_blank">LatLong.net</a>
+                to get the latitude-longitude coordinates of a location.
+            </h4>
+            
         </div>
-        <div class="col-sm-3">
-            <h3>What happens with the Stellar Lumens (XLM) that get sent with each request's transaction?</h3>
-            <p>I plan to</p>
-        </div>
-        <div class="col-sm-1">
-                <h3>Contact</h3>
-                <p>BrentLabasan@gmail.com</p>
-            </div>
 
     </div>
 
