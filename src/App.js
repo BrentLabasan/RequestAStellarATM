@@ -22,6 +22,9 @@ class App extends Component {
                 REQUEST ATM
 				</NavItem>
               <NavItem eventKey={2} href="#">
+                LOCATION IDEAS
+				</NavItem>
+        <NavItem eventKey={3} href="#">
                 FAQ
 				</NavItem>
               {/* <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
