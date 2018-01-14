@@ -93,19 +93,19 @@
             var lastCursor = 0; // or load where you left off
 
             var txHandler = function (txResponse) {
-                console.log('txResponse');
-                console.log(txResponse);
+                // console.log('txResponse');
+                // console.log(txResponse);
             };
 
             var es = server.payments()
                 .forAccount(accountId)
                 .limit(100)
                 .call().then(function (payments) {
-                    console.log('payments');
-                    console.log(payments);
+                    // console.log('payments');
+                    // console.log(payments);
 
                     for (let i = 0; i < payments.records.length; i++) {
-                        console.log(payments.records[i].transaction_hash);
+                        // console.log(payments.records[i].transaction_hash);
                         $.ajax({
                             url: "https://horizon.stellar.org/transactions/" + payments.records[i].transaction_hash,
                             cache: false
@@ -119,7 +119,7 @@
                                     // array.push({ lat: parseFloat(x[0]), lng: parseFloat(x[1]) });
                                     // debugger;
                                     var latLng = new google.maps.LatLng(parseFloat(x[0]), parseFloat(x[1]))
-                                    debugger;
+                                    // debugger;
                                     var marker = new google.maps.Marker({
                                         position: latLng,
                                         map: map,
@@ -127,9 +127,9 @@
                                     });
 
                                 }
-                                console.log("memo of transaction_hash ");
-                                console.log(html.memo);
-                                console.log(array);
+                                // console.log("memo of transaction_hash ");
+                                // console.log(html.memo);
+                                // console.log(array);
 
                             });
                     }

@@ -12,7 +12,7 @@ class App extends Component {
         <Navbar inverse collapseOnSelect>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="#brand">RequestAStellarATM.com</a>
+              <a href="#brand">RequestAStellarATM.com <sup>BETA</sup></a>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
