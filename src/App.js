@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import { Nav, NavItem, Navbar, Popover, Tooltip, Button, Modal, OverlayTrigger } from 'react-bootstrap';
+import { Nav, NavItem, Navbar, Button, Modal } from 'react-bootstrap';
 let mc = "";
 class App extends Component {
 
@@ -29,16 +29,16 @@ class App extends Component {
   }
 
   render() {
-    const popover = (
-      <Popover id="modal-popover" title="popover">
-        very popover. such engagement
-			</Popover>
-    );
-    const tooltip = <Tooltip id="modal-tooltip">wow.</Tooltip>;
+    // const popover = (
+    //   <Popover id="modal-popover" title="popover">
+    //     very popover. such engagement
+		// 	</Popover>
+    // );
+    // const tooltip = <Tooltip id="modal-tooltip">wow.</Tooltip>;
 
-    const mc1 = <span>foo</span>;
-    const mc2 = <span>bar</span>;
-    const mc3 = <span>baz</span>;
+    const mc1 = <div>foo</div>;
+    const mc2 = <div>bar</div>;
+    const mc3 = <div>baz</div>;
 
     return (
       <div className="App">
@@ -89,11 +89,10 @@ class App extends Component {
             <Modal.Title>Modal heading</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <h4>Text in a modal</h4>
 
             {mc}
 
-            <p>
+            {/* <p>
               Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
 						</p>
 
@@ -113,7 +112,7 @@ class App extends Component {
                 <a href="#tooltip">tooltip</a>
               </OverlayTrigger>{' '}
               here
-						</p>
+						</p> */}
 
           </Modal.Body>
           <Modal.Footer>
