@@ -2,22 +2,31 @@ import React, { Component } from 'react';
 import './App.css';
 
 import { Nav, NavItem, Navbar, Popover, Tooltip, Button, Modal, OverlayTrigger } from 'react-bootstrap';
-
+let mc = "";
 class App extends Component {
+
+
+
   constructor(...args) {
     super(...args);
 
     this.handleShow = this.handleShow.bind(this);
     this.handleClose = this.handleClose.bind(this);
 
-    this.state = { showModal: false };
+    this.state = { 
+      showModal: false
+     };
+
   }
 
   handleClose() {
     this.setState({ showModal: false });
   }
 
-  handleShow() {
+  handleShow(i) {
+    debugger;
+    console.log("handleShow");
+    mc = i;
     this.setState({ showModal: true });
   }
 
@@ -41,13 +50,13 @@ class App extends Component {
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav>
-              <NavItem eventKey={1} href="#">
+              <NavItem eventKey={1} href="#" onClick={() => this.handleShow(1)}>
                 REQUEST ATM
 				</NavItem>
-              <NavItem eventKey={2} href="#">
+              <NavItem eventKey={2} href="#" onClick={() => this.handleShow(2)}>
                 LOCATION IDEAS
 				</NavItem>
-              <NavItem eventKey={3} href="#">
+              <NavItem eventKey={3} href="#" onClick={() => this.handleShow(3)}>
                 FAQ
 				</NavItem>
               {/* <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
@@ -70,7 +79,7 @@ class App extends Component {
         </Navbar>
 
 
-        <Button bsStyle="primary" bsSize="large" onClick={this.handleShow}>
+        <Button bsStyle="primary" bsSize="large" onClick={() => this.handleShow(0)}>
           Launch demo modal
 				</Button>
 
@@ -80,6 +89,9 @@ class App extends Component {
           </Modal.Header>
           <Modal.Body>
             <h4>Text in a modal</h4>
+
+            {"" + mc}
+
             <p>
               Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
 						</p>
@@ -102,54 +114,6 @@ class App extends Component {
               here
 						</p>
 
-            <hr />
-
-            <h4>Overflowing text to show scroll behavior</h4>
-            <p>
-              Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-							dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
-							ac consectetur ac, vestibulum at eros.
-						</p>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur
-							et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-							auctor.
-						</p>
-            <p>
-              Aenean lacinia bibendum nulla sed consectetur. Praesent commodo
-							cursus magna, vel scelerisque nisl consectetur et. Donec sed odio
-							dui. Donec ullamcorper nulla non metus auctor fringilla.
-						</p>
-            <p>
-              Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-							dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
-							ac consectetur ac, vestibulum at eros.
-						</p>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur
-							et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-							auctor.
-						</p>
-            <p>
-              Aenean lacinia bibendum nulla sed consectetur. Praesent commodo
-							cursus magna, vel scelerisque nisl consectetur et. Donec sed odio
-							dui. Donec ullamcorper nulla non metus auctor fringilla.
-						</p>
-            <p>
-              Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-							dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
-							ac consectetur ac, vestibulum at eros.
-						</p>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur
-							et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-							auctor.
-						</p>
-            <p>
-              Aenean lacinia bibendum nulla sed consectetur. Praesent commodo
-							cursus magna, vel scelerisque nisl consectetur et. Donec sed odio
-							dui. Donec ullamcorper nulla non metus auctor fringilla.
-						</p>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.handleClose}>Close</Button>
