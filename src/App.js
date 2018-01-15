@@ -24,8 +24,6 @@ class App extends Component {
   }
 
   handleShow(i) {
-    debugger;
-    console.log("handleShow");
     mc = i;
     this.setState({ showModal: true });
   }
@@ -37,6 +35,10 @@ class App extends Component {
 			</Popover>
     );
     const tooltip = <Tooltip id="modal-tooltip">wow.</Tooltip>;
+
+    const mc1 = <span>foo</span>;
+    const mc2 = <span>bar</span>;
+    const mc3 = <span>baz</span>;
 
     return (
       <div className="App">
@@ -50,13 +52,13 @@ class App extends Component {
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav>
-              <NavItem eventKey={1} href="#" onClick={() => this.handleShow(1)}>
+              <NavItem eventKey={1} href="#" onClick={() => this.handleShow(mc1)}>
                 REQUEST ATM
 				</NavItem>
-              <NavItem eventKey={2} href="#" onClick={() => this.handleShow(2)}>
+              <NavItem eventKey={2} href="#" onClick={() => this.handleShow(mc2)}>
                 LOCATION IDEAS
 				</NavItem>
-              <NavItem eventKey={3} href="#" onClick={() => this.handleShow(3)}>
+              <NavItem eventKey={3} href="#" onClick={() => this.handleShow(mc3)}>
                 FAQ
 				</NavItem>
               {/* <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
@@ -78,10 +80,9 @@ class App extends Component {
           </Navbar.Collapse>
         </Navbar>
 
-
-        <Button bsStyle="primary" bsSize="large" onClick={() => this.handleShow(0)}>
+        {/* <Button bsStyle="primary" bsSize="large" onClick={() => this.handleShow(0)}>
           Launch demo modal
-				</Button>
+				</Button> */}
 
         <Modal show={this.state.showModal} onHide={this.handleClose}>
           <Modal.Header closeButton>
@@ -90,7 +91,7 @@ class App extends Component {
           <Modal.Body>
             <h4>Text in a modal</h4>
 
-            {"" + mc}
+            {mc}
 
             <p>
               Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
