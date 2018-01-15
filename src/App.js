@@ -56,8 +56,8 @@ class App extends Component {
     const mc3 = <div>
       WORK IN PROGRESS
 
-      <h3>What is the status (beta, live) of this project?</h3>
-      <p>This project is in beta testing.</p>
+      <h3>What is the status of this project?</h3>
+      <p>This project is currently in beta testing.</p>
 
       <h3>Do I have to donate a certain amount of XLM?</h3>
       <p>Any donation amount helps!</p>
@@ -82,7 +82,8 @@ class App extends Component {
       and a web app to encourage people to donate to set up ATMs in different locations was the idea that best fit
       with Stellar's mission statement and goals.
       <br/><br/>
-      I hope to work closely with the Stellar Team with the funds donated.
+      <span className="bold">I hope to work closely with the Stellar Team to directly use the donated funds
+       to further adoption of Stellar's products.</span>
 
       </p>
 

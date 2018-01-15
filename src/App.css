@@ -44,3 +44,7 @@ p {
 .navbar {
   margin-bottom: 0px;
 }
+
+.bold {
+  font-weight: bold;
+}
