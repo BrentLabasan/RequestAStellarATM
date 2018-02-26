@@ -114,7 +114,7 @@ Current Goals For Project
     return (
       <div className="App">
 
-        <Navbar inverse collapseOnSelect>
+        {/* <Navbar inverse collapseOnSelect>
           <Navbar.Header>
             <Navbar.Brand>
               <a href="#brand">RequestAStellarATM.com <sup>BETA</sup></a>
@@ -132,13 +132,6 @@ Current Goals For Project
               <NavItem eventKey={3} href="#" onClick={() => this.handleShow(mc3)}>
                 FAQ
 				</NavItem>
-              {/* <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-                <MenuItem eventKey={3.1}>Action</MenuItem>
-                <MenuItem eventKey={3.2}>Another action</MenuItem>
-                <MenuItem eventKey={3.3}>Something else here</MenuItem>
-                <MenuItem divider />
-                <MenuItem eventKey={3.3}>Separated link</MenuItem>
-              </NavDropdown> */}
             </Nav>
             <Nav pullRight>
               <NavItem eventKey={1} href="#" onClick={() => this.handleShow(mc4)}>
@@ -149,7 +142,9 @@ Current Goals For Project
 				</NavItem>
             </Nav>
           </Navbar.Collapse>
-        </Navbar>
+        </Navbar> */}
+
+        
 
         {/* <Button bsStyle="primary" bsSize="large" onClick={() => this.handleShow(0)}>
           Launch demo modal
