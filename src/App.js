@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 
 import { Nav, NavItem, Navbar, Button, Modal } from 'react-bootstrap';
+// import { Nav, NavItem, Navbar, Button, Modal, NavDropdown, MenuItem } from 'react-bootstrap';
+
 let mc = "";
 class App extends Component {
 
@@ -114,7 +116,7 @@ Current Goals For Project
     return (
       <div className="App">
 
-        {/* <Navbar inverse collapseOnSelect>
+        <Navbar inverse collapseOnSelect>
           <Navbar.Header>
             <Navbar.Brand>
               <a href="#brand">RequestAStellarATM.com <sup>BETA</sup></a>
@@ -125,24 +127,24 @@ Current Goals For Project
             <Nav>
               <NavItem eventKey={1} href="#" onClick={() => this.handleShow(mc1)}>
                 REQUEST ATM
-				</NavItem>
+				      </NavItem>
               <NavItem eventKey={2} href="#" onClick={() => this.handleShow(mc2)}>
                 LOCATION IDEAS
-				</NavItem>
+				      </NavItem>
               <NavItem eventKey={3} href="#" onClick={() => this.handleShow(mc3)}>
                 FAQ
-				</NavItem>
+				      </NavItem>
             </Nav>
             <Nav pullRight>
               <NavItem eventKey={1} href="#" onClick={() => this.handleShow(mc4)}>
                 ABOUT
-				</NavItem>
+				        </NavItem>
               <NavItem eventKey={2} href="#" onClick={() => this.handleShow(mc5)}>
                 CONTACT
-				</NavItem>
+				      </NavItem>
             </Nav>
           </Navbar.Collapse>
-        </Navbar> */}
+        </Navbar>
 
         
 
